@@ -1,0 +1,26 @@
+// Write a function which decoded a ROT13 encoded string.
+// DO NOT transform non-alphabetic character, but do pass them on.
+
+function rot13(str) { 
+  // Making an array, which contains symbol codes of initial string
+  var arr = [];
+	for(i=0; i<str.length; i++) {
+		arr.push(str.charCodeAt(i));
+	}
+  // Changing  every symbol code with ROT13 rule, except non-alphabetic characters
+  var arrRot = arr.map(function(sign) {
+    if (sign>=65 & sign<78) {
+		  return sign+13; 
+	  } else if (sign>=78 & sign<91) {
+		  return sign-13; 
+	  } else { return sign;}
+  });
+  // Making decoded string from changed array
+  for(j=0; j<arrRot.length; j++) {
+    arrRot[j] = String.fromCharCode(arrRot[j]);
+  }
+  return arrRot.join('');
+}
+
+// Change the inputs below to test
+rot13("ABCDEFGRR PBQR PNZC");
