@@ -1,0 +1,10 @@
+// Return the provided string with the first letter of each word capitalized.
+function titleCase(str) {
+  var wordStr = str.toLowerCase().split(' ');
+  for (var i = 0; i < wordStr.length; i++) {
+    wordStr[i] = wordStr[i].charAt(0).toUpperCase() + wordStr[i].substring(1);
+  }
+  return wordStr.join(' ');
+}
+
+titleCase("I'm a little tea pot");
